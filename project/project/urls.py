@@ -27,4 +27,7 @@ urlpatterns = [
     path('logindata/',views.logindata,name='logindata'),
     path('userdashboard/',views.userdashboard,name='userdashboard'),
     path('admindashboard/',views.admindashboard,name='admindashboard'),
+    path('addtousercart/',views.addtousercart,name='addtousercart'),
+    path('cartdata/',views.cartdata,name='cartdata'),
+    
 ]

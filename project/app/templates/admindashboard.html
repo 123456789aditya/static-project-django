@@ -1,3 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
+{{data1}}
+<button type="button" class="btn btn-dark"><a href="{% url 'addtousercart' %}? name={{data1.name}}? email={{data1.email}}? password={{data1.password}}">add-to-user-cart</a></button>
+{% if data1 %}
+<form action="{% url 'cartdata' %}" method="POST">
+    {% csrf_token %}
+    <label for="imageUpload">Image</label>
+    <input type="file" id="imageUpload" name="image" accept="image/">
+    <br>
+    <label>Product_name</label>
+    <input type="text"name="product_name">
+    <br>
+    <label>product_price</label>
+    <input type="number" name="product_price">
+    <br>
+    <label>product_quantity</label>
+    <input type="number"name="product_quantity">
+    <br>
+    <input type="submit">
+
+</form>
+{% endif %}
 {% endblock %}

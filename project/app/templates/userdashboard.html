@@ -1,3 +1,99 @@
 {% extends 'base.html' %}
 {% block content %}
+
+      
+     
+
+
+
+
+      
+      {% comment %} <div class="card" style="width: 18rem;">
+         <img src={{i.image}} class="card-img-top" alt="...">
+         <div class="card-body">
+            <h5 class="card-title">name:{{i.product_name}}</h5>
+            <h6 class="card-title">{{i.product_price}}</h6>
+            <h6 class="card-title">{{i.product_quantity}}</h6>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+      </div> {% endcomment %}
+      {% comment %} <div class="card-group">
+        <div class="card">
+          <img src="{{i.image}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{i.product_name}}</h5>
+            <h6 class="card-title">{{i.product_price}}</h6>
+            <h6 class="card-title">{{i.product_quantity}}</h6>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <button type="button" class="btn btn-danger"><a href="">Buy</a></button>
+          </div>
+        </div>
+      </div> {% endcomment %}
+
+
+
+
+{% comment %} <div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4 bg-primary text-black text-center p-3">
+
+      <img src="{{i.image}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{i.product_name}}</h5>
+            <h6 class="card-title">{{i.product_price}}</h6>
+            <h6 class="card-title">{{i.product_quantity}}</h6>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <button type="button" class="btn btn-danger"><a href="">Buy</a></button>
+    </div>
+  </div>
+</div> {% endcomment %}
+
+{% comment %} <div class="container mt-5">
+  <div class="d-flex flex-column overflow-auto gap-3">
+    <!-- Repeat this block for each product -->
+    <div class="bg-primary text-white text-center p-3" style="min-width: 300px;">
+      <img src="{{i.image}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{i.product_name}}</h5>
+        <h6 class="card-title">{{i.product_price}}</h6>
+        <h6 class="card-title">{{i.product_quantity}}</h6>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <a href="" class="btn btn-danger">Buy</a>
+      </div>
+    </div>
+    <!-- End repeat -->
+  </div>
+</div>  {% endcomment %}
+
+
+
+<div class="container">
+    <div class="row g-4">
+
+    {% for i in add1 %}
+       
+
+    <div class="bg-primary text-white text-center p-3 rounded" style="width: 300px; height: 300px;">
+      <img src="{{ i.image }}" class="card-img-top" alt="i.image" style="height: 120px; object-fit: cover;">
+      
+
+      <div class="card-body p-2">
+        <h6 class="card-title mb-1">{{ i.product_name }}</h6>
+        <p class="mb-1">{{ i.product_price }}</p>
+        <p class="mb-1">{{ i.product_quantity }}</p>
+        <small class="text-light d-block mb-2">Last updated 3 mins ago</small>
+        <a href="#" class="btn btn-danger btn-sm">Buy</a>
+      </div>
+    </div>
+  
+    {% endfor %} 
+    <!-- End repeat -->
+
+   
+
+
+      
+  </div>
+</div>
+
 {% endblock %}

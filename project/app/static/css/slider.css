@@ -1,5 +1,11 @@
-  .carousel-inner img {
+  /* .carousel-inner img {
     height: 300px; /* Adjust as needed */
-    width:100%;
+    /* width:100%;
     object-fit: cover; /* Optional: crop to fit without distortion */
-  }
+  
+#menu-bar {
+  height:50px;
+  width:100%;
+  border:2px solid black;
+
+}
