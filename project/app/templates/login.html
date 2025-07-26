@@ -1,68 +1,60 @@
-{% extends 'base.html' %}
-{% block content %}
-<form action="{% url 'logindata' %}" method="post">
-    {% csrf_token %}
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" name="password">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<br>
-<br>
-<br>
-<br>
-<footer class="bg-dark text-white pt-4">
-    <div class="container text-center text-md-start">
-      <div class="row">
 
-        <!-- Column 1 -->
-        <div class="col-md-3 mb-3">
-          <h5 class="text-uppercase">Company</h5>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Careers</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
-          </ul>
-        </div>
 
-        <!-- Column 2 -->
-        <div class="col-md-3 mb-3">
-          <h5 class="text-uppercase">Resources</h5>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Help Center</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
-          </ul>
-        </div>
 
-        <!-- Column 3: Social Icons -->
-        <div class="col-md-6 mb-3 text-md-end">
-          <h5 class="text-uppercase">Follow Us</h5>
-          <a href="#" class="text-white me-3">
-            <i class="bi bi-facebook"></i> Facebook
-          </a>
-          <a href="#" class="text-white me-3">
-            <i class="bi bi-twitter"></i> Twitter
-          </a>
-          <a href="#" class="text-white">
-            <i class="bi bi-instagram"></i> Instagram
-          </a>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Login Form</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background:	#E23744;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      max-width: 400px;
+      width: 100%;
+      padding: 2rem;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h3 class="text-center mb-4">Login</h3>
+    <form method="post" action="{% url 'logindata' %}">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" required name="email">
       </div>
-    </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" required name="password">
+      </div>
+      <div class="d-grid mb-3">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+      <div class="text-center">
+        <a href="#">Forgot password?</a>
+      </div>
+      <br>
+      <div class="text-center">
+        <a href="{% url 'home' %}">Go back to home?</a>
+      </div>
+    </form>
+  </div>
 
-    <div class="text-center py-3 bg-secondary">
-      © 2025 Your Company Name
-    </div>
-  </footer>
-{% endblock %}
+  <!-- Bootstrap JS Bundle CDN (Optional for interactive components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

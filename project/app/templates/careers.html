@@ -1,3 +1,78 @@
-{% extends 'base.html' %}
-{% block content %}
-{% endblock %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Django Project Poster</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #0d1117;
+      color: #f0f6fc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #21262d, #161b22);
+      padding: 4rem 2rem;
+      text-align: center;
+      border-radius: 12px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #58a6ff;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      color: #c9d1d9;
+    }
+
+    .btn-django {
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #22c55e;
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .btn-django:hover {
+      background-color: #16a34a;
+    }
+
+    .features {
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 1.5rem;
+      color: #c9d1d9;
+    }
+
+    .feature-card h5 {
+      color: #58a6ff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container my-5">
+    <div class="hero shadow">
+      <h1>🚀 Boost your career with Zomato</h1>
+      <p>Zomato team is always here to support you</p>
+      <a class="btn btn-django" href="{% url 'careersform' %}">connect with us</a>
+    </div>
+
+    
+

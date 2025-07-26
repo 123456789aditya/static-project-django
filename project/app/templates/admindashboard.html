@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-{{data1}}
+{% comment %} {{data1}} {% endcomment %}
+{% comment %} {{data2}} {% endcomment %}
 <button type="button" class="btn btn-dark"><a href="{% url 'addtousercart' %}? name={{data1.name}}? email={{data1.email}}? password={{data1.password}}">add-to-user-cart</a></button>
-{% if data1 %}
+{% if add %}
 <form action="{% url 'cartdata' %}" method="POST">
     {% csrf_token %}
     <label for="imageUpload">Image</label>
@@ -14,11 +15,40 @@
     <label>product_price</label>
     <input type="number" name="product_price">
     <br>
-    <label>product_quantity</label>
-    <input type="number"name="product_quantity">
+    {% comment %} <label>product_quantity</label>
+    <input type="number"name="product_quantity"> {% endcomment %}
     <br>
     <input type="submit">
 
 </form>
 {% endif %}
+<br>
+<br>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Age</th>
+      <th scope="col">Desc</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data2 %}
+    <tr>
+      <th scope="row">{{i.id}}</th>
+      <td>{{i.your_name}}</td>
+      <td>{{i.email_address}}</td>
+      <td>{{i.age}}</td>
+      <th scope="col">{{i.job_description}}</th>
+      <th scope="col"><a href="{% url 'update' pk=i.id %}">update</a></th>
+      <th scope="col"><a href="{% url 'delete' pk=i.id %}">delete</a></th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

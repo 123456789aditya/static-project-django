@@ -29,5 +29,12 @@ urlpatterns = [
     path('admindashboard/',views.admindashboard,name='admindashboard'),
     path('addtousercart/',views.addtousercart,name='addtousercart'),
     path('cartdata/',views.cartdata,name='cartdata'),
+    path('careers/',views.careers,name='careers'),
+    path('careersform/',views.careersform,name='careersform'),
+    path('jobapplication/',views.jobapplication,name='jobapplication'),
+    path('delete/<int:pk>/',views.delete,name='delete'),
+    path('update/<int:pk>/',views.update,name='update'),
+    path('update/uprec/<int:pk>',views.uprec,name='uprec')
+    
     
 ]

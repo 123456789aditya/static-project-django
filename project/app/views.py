@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Student,Add_To_Cart
+from .models import Student,Add_To_Cart,CareersQuery
 
 # Create your views here.
 def home(request):
@@ -39,7 +39,8 @@ def logindata(request):
                 "password":"admin"
             }
             # add1=Add_To_Cart.objects.all()
-            return render(request,'admindashboard.html',{'data1':data1})
+            data2=CareersQuery.objects.all()
+            return render(request,'admindashboard.html',{'data1':data1,'data2':data2})
         else:
             user=Student.objects.filter(email=email)
             if user:
@@ -57,6 +58,7 @@ def userdashboard(request):
     return render(request,'userdashboard.html')
 
 def admindashboard(request):
+    
     return render(request,'admindashboard.html')
 
 def addtousercart(request):
@@ -68,16 +70,77 @@ def addtousercart(request):
         'email':email,
         'password':password
     }
-    return render(request,'admindashboard.html',{'add':data1})
+    data2=CareersQuery.objects.all()
+    return render(request,'admindashboard.html',{'add':data1,'data2':data2})
 
 def cartdata(request):
     if request.method=="POST":
         image=request.FILES.get("image")
         product_name=request.POST.get("product_name")
         product_price=request.POST.get("product_price")
-        product_quantity=request.POST.get("product_quantity")
-        Add_To_Cart.objects.create(image=image,product_name=product_name,product_price=product_price,product_quantity=product_quantity)
+        # product_quantity=request.POST.get("product_quantity")
+        Add_To_Cart.objects.create(image=image,product_name=product_name,product_price=product_price)
         return render(request,'admindashboard.html')
     else:
         return render(request,'admindashboard.html')
         
+def careers(request):
+    return render(request,'careers.html')
+
+def careersform(request):
+    return render(request,'careersform.html')
+
+def jobapplication(request):
+    if request.method=="POST":
+        your_name=request.POST.get("your_name")
+        email_address=request.POST.get("email_address")
+        age=request.POST.get("age")
+        job_description=request.POST.get("job_description")
+        CareersQuery.objects.create(your_name=your_name,email_address=email_address,age=age,job_description=job_description)
+        # data2=CareersQuery.objects.all()
+        # return render(request,'admindashboard.html',{"data2":data2})
+        return render(request,'userdashboard.html')
+    else:
+        return render(request,"careersform.html")
+    
+def delete(request,pk):
+    userdata=CareersQuery.objects.get(id=pk)
+    userdata.delete()
+    data2=CareersQuery.objects.all()
+    return render(request,'admindashboard.html',{"data2":data2})
+    
+
+# def update(request,pk):
+#     old_data = CareersQuery.objects.get(id=pk)
+#     data3 = {
+#         'name':old_data.your_name,
+#         'id':pk,
+#         'email':old_data.email_address,
+#         'age':old_data.age,
+#         'jd':old_data.job_description
+        
+#     }
+                
+#     return render(request,'careersform.html',{'data3':data3})
+
+def update(request,pk):
+    userdata=CareersQuery.objects.get(id=pk)
+    if request.method=="POST":
+        return render(request,'update.html',{'userdata':userdata})
+    else:
+        return render(request,'update.html',{'userdata':userdata})
+    
+def uprec(request,pk):
+    x=request.POST['your_name']
+    y=request.POST['email_address']
+    z=request.POST['age']
+    userdata=CareersQuery.objects.get(id=pk)
+    userdata.your_name=x
+    userdata.email_address=y
+    userdata.age=z
+    userdata.save()
+    data2=CareersQuery.objects.all()
+    return render(request,'admindashboard.html',{'data2':data2})
+    
+    
+    
