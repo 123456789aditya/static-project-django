@@ -130,19 +130,19 @@ def update(request,pk):
     else:
         return render(request,'update.html',{'userdata':userdata})
     
-def uprec(request,pk):
-    x=request.POST['your_name']
-    y=request.POST['email_address']
-    z=request.POST['age']
-    v=request.POST['job_description']
-    userdata=CareersQuery.objects.get(id=pk)
-    userdata.your_name=x
-    userdata.email_address=y
-    userdata.age=z
-    userdata.job_description=v
-    userdata.save()
-    data2=CareersQuery.objects.all()
-    return render(request,'admindashboard.html',{'data2':data2})
+# def uprec(request,pk):
+#     x=request.POST['your_name']
+#     y=request.POST['email_address']
+#     z=request.POST['age']
+#     v=request.POST['job_description']
+#     userdata=CareersQuery.objects.get(id=pk)
+#     userdata.your_name=x
+#     userdata.email_address=y
+#     userdata.age=z
+#     userdata.job_description=v
+#     userdata.save()
+#     data2=CareersQuery.objects.all()
+#     return render(request,'admindashboard.html',{'data2':data2})
     
     
     
