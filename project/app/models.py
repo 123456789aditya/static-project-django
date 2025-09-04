@@ -19,3 +19,5 @@ class CareersQuery(models.Model):
     email_address=models.EmailField(max_length=20)
     age=models.IntegerField()
     job_description=models.TextField(max_length=50)
+    
+    

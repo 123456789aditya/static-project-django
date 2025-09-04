@@ -18,6 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from app import views
 
+
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home,name='home'),
@@ -34,7 +40,9 @@ urlpatterns = [
     path('jobapplication/',views.jobapplication,name='jobapplication'),
     path('delete/<int:pk>/',views.delete,name='delete'),
     path('update/<int:pk>/',views.update,name='update'),
-    path('update/uprec/<int:pk>',views.uprec,name='uprec')
+    path('update/uprec/<int:pk>',views.uprec,name='uprec'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
     
     
 ]
